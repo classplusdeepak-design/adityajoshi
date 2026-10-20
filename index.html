@@ -214,6 +214,20 @@
         ::-webkit-scrollbar-track { background: #0F172A; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 999px; }
         ::-webkit-scrollbar-thumb:hover { background: #06B6D4; }
+
+/* AIIMS Team Scroller CSS */
+        @keyframes teamMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .team-marquee-track {
+            display: flex;
+            width: max-content;
+            animation: teamMarquee 32s linear infinite;
+        }
+        .team-marquee-track:hover {
+            animation-play-state: paused;
+        }
     </style>
 </head>
 <body class="text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
@@ -972,6 +986,227 @@
                 </div>
             </div>
         </section>
+<!-- 13. MEET OUR AIIMS DELHI MENTOR CAROUSEL -->
+        <section id="sec-team" class="py-20 bg-slate-50 border-t border-slate-200 overflow-hidden relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                    <div class="text-left">
+                        <span class="text-xs font-bold font-mono tracking-widest uppercase text-cyan-700 bg-cyan-100/60 px-3 py-1 rounded-full">
+                            AIIMS Mentors
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 mt-3 tracking-tight">
+                            Meet the AIIMS Delhi Team
+                        </h2>
+                        <p class="text-slate-600 mt-2 text-sm sm:text-base">
+                            Rank-holders who prepared under Aditya Joshi Sir and are now giving back to the next generation of doctors.
+                        </p>
+                    </div>
+
+                    <!-- Navigation Arrow Controls -->
+                    <div class="flex items-center gap-2 self-start sm:self-auto">
+                        <button type="button" onclick="scrollTeamTrack(-1)" 
+                                aria-label="Scroll left"
+                                class="w-10 h-10 rounded-full border border-slate-300 bg-white hover:bg-cyan-50 hover:border-cyan-400 text-slate-700 hover:text-cyan-700 flex items-center justify-center transition-all shadow-sm">
+                            <i class="ph ph-caret-left text-lg"></i>
+                        </button>
+                        <button type="button" onclick="scrollTeamTrack(1)" 
+                                aria-label="Scroll right"
+                                class="w-10 h-10 rounded-full border border-slate-300 bg-white hover:bg-cyan-50 hover:border-cyan-400 text-slate-700 hover:text-cyan-700 flex items-center justify-center transition-all shadow-sm">
+                            <i class="ph ph-caret-right text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Auto-Scrolling Marquee Wrapper with Edge Gradients -->
+            <div class="relative w-full overflow-hidden">
+                <!-- Left & Right Fade Masks -->
+                <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-slate-50 to-transparent z-10"></div>
+                <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-slate-50 to-transparent z-10"></div>
+
+                <!-- Scrolling Viewport & Track -->
+                <div id="team-scroller" class="overflow-x-auto scrollbar-none py-4" style="scrollbar-width: none; -ms-overflow-style: none;">
+                    <div class="team-marquee-track flex gap-6">
+                        
+                        <!-- CARD 1 -->
+                        <div class="w-64 bg-white rounded-2xl border border-slate-200 p-3.5 flex-shrink-0 text-center shadow-sm hover:shadow-md hover:border-cyan-400 transition-all group">
+                            <div class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 mb-3">
+                                <img src="https://d502jbuhuh9wk.cloudfront.net/ai_web/664a14d52fd4b2450b59600e/media/image/da427f5e-264b-4ba7-88be-2011cf20ee64-WhatsApp_Image_2026-09-23_at_10-47-02_PM_1.jpeg" 
+                                     alt="Iram Quazi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">Iram Quazi</h4>
+                            <span class="text-xs font-mono font-bold text-cyan-700">AIR 1 · AIIMS Delhi</span>
+                        </div>
+
+                        <!-- CARD 2 -->
+                        <div class="w-64 bg-white rounded-2xl border border-slate-200 p-3.5 flex-shrink-0 text-center shadow-sm hover:shadow-md hover:border-cyan-400 transition-all group">
+                            <div class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 mb-3">
+                                <img src="https://d502jbuhuh9wk.cloudfront.net/ai_web/664a14d52fd4b2450b59600e/media/image/d9e09041-06f2-4e5d-b717-28b2b1640909-WhatsApp_Image_2026-09-23_at_10-47-02_PM_2.jpeg" 
+                                     alt="Krish Agrawal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">Krish Agrawal</h4>
+                            <span class="text-xs font-mono font-bold text-cyan-700">AIR 24 · AIIMS Delhi</span>
+                        </div>
+
+                        <!-- CARD 3 -->
+                        <div class="w-64 bg-white rounded-2xl border border-slate-200 p-3.5 flex-shrink-0 text-center shadow-sm hover:shadow-md hover:border-cyan-400 transition-all group">
+                            <div class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 mb-3">
+                                <img src="https://d502jbuhuh9wk.cloudfront.net/ai_web/664a14d52fd4b2450b59600e/media/image/3cdfdc01-540f-4728-a41c-2a920b1bcf6f-WhatsApp_Image_2026-09-23_at_10-47-03_PM_1.jpeg" 
+                                     alt="Srishti" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">Srishti</h4>
+                            <span class="text-xs font-mono font-bold text-cyan-700">AIIMS Delhi Ranker</span>
+                        </div>
+
+                        <!-- CARD 4 -->
+                        <div class="w-64 bg-white rounded-2xl border border-slate-200 p-3.5 flex-shrink-0 text-center shadow-sm hover:shadow-md hover:border-cyan-400 transition-all group">
+                            <div class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 mb-3">
+                                <img src="https://d502jbuhuh9wk.cloudfront.net/ai_web/664a14d52fd4b2450b59600e/media/image/cf5c957b-738b-44da-ab2e-8b4f165ccfd0-WhatsApp_Image_2026-09-23_at_10-47-00_PM_1_1.jpeg" 
+                                     alt="Shubham Soni" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">Shubham Soni</h4>
+                            <span class="text-xs font-mono font-bold text-cyan-700">715/720 · AIIMS Delhi</span>
+                        </div>
+
+                        <!-- CARD 5 -->
+                        <div class="w-64 bg-white rounded-2xl border border-slate-200 p-3.5 flex-shrink-0 text-center shadow-sm hover:shadow-md hover:border-cyan-400 transition-all group">
+                            <div class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 mb-3">
+                                <img src="https://d502jbuhuh9wk.cloudfront.net/ai_web/664a14d52fd4b2450b59600e/media/image/1a0d0211-87c0-4f82-8c7d-13008987031a-WhatsApp_Image_2026-09-23_at_10-47-00_PM.jpeg" 
+                                     alt="Saksham Agrawal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">Saksham Agrawal</h4>
+                            <span class="text-xs font-mono font-bold text-cyan-700">715/720 · AIIMS Delhi</span>
+                        </div>
+
+                        <!-- CARD 6 -->
+                        <div class="w-64 bg-white rounded-2xl border border-slate-200 p-3.5 flex-shrink-0 text-center shadow-sm hover:shadow-md hover:border-cyan-400 transition-all group">
+                            <div class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 mb-3">
+                                <img src="https://d502jbuhuh9wk.cloudfront.net/ai_web/664a14d52fd4b2450b59600e/media/image/18ea0aa1-a27b-4c8b-8764-01ecc06eb27f-WhatsApp_Image_2026-09-23_at_10-47-01_PM.jpeg" 
+                                     alt="Aadarsh Singh Moyal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">Aadarsh Singh</h4>
+                            <span class="text-xs font-mono font-bold text-cyan-700">715/720 · AIIMS Delhi</span>
+                        </div>
+
+                        <!-- CLONE SET (FOR SEAMLESS INFINITE LOOP) -->
+                        <div aria-hidden="true" class="w-64 bg-white rounded-2xl border border-slate-200 p-3.5 flex-shrink-0 text-center shadow-sm">
+                            <div class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 mb-3">
+                                <img src="https://d502jbuhuh9wk.cloudfront.net/ai_web/664a14d52fd4b2450b59600e/media/image/da427f5e-264b-4ba7-88be-2011cf20ee64-WhatsApp_Image_2026-09-23_at_10-47-02_PM_1.jpeg" 
+                                     alt="Iram Quazi" class="w-full h-full object-cover">
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">Iram Quazi</h4>
+                            <span class="text-xs font-mono font-bold text-cyan-700">AIR 1 · AIIMS Delhi</span>
+                        </div>
+
+                        <div aria-hidden="true" class="w-64 bg-white rounded-2xl border border-slate-200 p-3.5 flex-shrink-0 text-center shadow-sm">
+                            <div class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 mb-3">
+                                <img src="https://d502jbuhuh9wk.cloudfront.net/ai_web/664a14d52fd4b2450b59600e/media/image/d9e09041-06f2-4e5d-b717-28b2b1640909-WhatsApp_Image_2026-09-23_at_10-47-02_PM_2.jpeg" 
+                                     alt="Krish Agrawal" class="w-full h-full object-cover">
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">Krish Agrawal</h4>
+                            <span class="text-xs font-mono font-bold text-cyan-700">AIR 24 · AIIMS Delhi</span>
+                        </div>
+
+                        <div aria-hidden="true" class="w-64 bg-white rounded-2xl border border-slate-200 p-3.5 flex-shrink-0 text-center shadow-sm">
+                            <div class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 mb-3">
+                                <img src="https://d502jbuhuh9wk.cloudfront.net/ai_web/664a14d52fd4b2450b59600e/media/image/3cdfdc01-540f-4728-a41c-2a920b1bcf6f-WhatsApp_Image_2026-09-23_at_10-47-03_PM_1.jpeg" 
+                                     alt="Srishti" class="w-full h-full object-cover">
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">Srishti</h4>
+                            <span class="text-xs font-mono font-bold text-cyan-700">AIIMS Delhi Ranker</span>
+                        </div>
+
+                        <div aria-hidden="true" class="w-64 bg-white rounded-2xl border border-slate-200 p-3.5 flex-shrink-0 text-center shadow-sm">
+                            <div class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 mb-3">
+                                <img src="https://d502jbuhuh9wk.cloudfront.net/ai_web/664a14d52fd4b2450b59600e/media/image/cf5c957b-738b-44da-ab2e-8b4f165ccfd0-WhatsApp_Image_2026-09-23_at_10-47-00_PM_1_1.jpeg" 
+                                     alt="Shubham Soni" class="w-full h-full object-cover">
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">Shubham Soni</h4>
+                            <span class="text-xs font-mono font-bold text-cyan-700">715/720 · AIIMS Delhi</span>
+                        </div>
+
+                        <div aria-hidden="true" class="w-64 bg-white rounded-2xl border border-slate-200 p-3.5 flex-shrink-0 text-center shadow-sm">
+                            <div class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 mb-3">
+                                <img src="https://d502jbuhuh9wk.cloudfront.net/ai_web/664a14d52fd4b2450b59600e/media/image/1a0d0211-87c0-4f82-8c7d-13008987031a-WhatsApp_Image_2026-09-23_at_10-47-00_PM.jpeg" 
+                                     alt="Saksham Agrawal" class="w-full h-full object-cover">
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">Saksham Agrawal</h4>
+                            <span class="text-xs font-mono font-bold text-cyan-700">715/720 · AIIMS Delhi</span>
+                        </div>
+
+                        <div aria-hidden="true" class="w-64 bg-white rounded-2xl border border-slate-200 p-3.5 flex-shrink-0 text-center shadow-sm">
+                            <div class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-100 mb-3">
+                                <img src="https://d502jbuhuh9wk.cloudfront.net/ai_web/664a14d52fd4b2450b59600e/media/image/18ea0aa1-a27b-4c8b-8764-01ecc06eb27f-WhatsApp_Image_2026-09-23_at_10-47-01_PM.jpeg" 
+                                     alt="Aadarsh Singh Moyal" class="w-full h-full object-cover">
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">Aadarsh Singh</h4>
+                            <span class="text-xs font-mono font-bold text-cyan-700">715/720 · AIIMS Delhi</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 14. SOCIAL NETWORK CHANNELS -->
+        <section class="py-16 bg-white border-t border-slate-200">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <span class="text-xs font-mono font-bold uppercase tracking-widest text-slate-500">Official Communities</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-950 mt-1">Connect with Us Across India</h2>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <a href="https://youtube.com/@adityaa.joshii?si=C8w7UJgK-xBm0Gcj" target="_blank" 
+                       class="p-4 rounded-2xl border border-slate-200 hover:border-red-400 hover:bg-red-50/30 text-center transition-all">
+                        <div class="w-12 h-12 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-2xl mx-auto mb-2">
+                            <i class="ph-fill ph-youtube-logo"></i>
+                        </div>
+                        <h4 class="font-bold text-xs sm:text-sm text-slate-900">Aditya Joshi</h4>
+                        <span class="text-[11px] text-slate-500">Main YouTube</span>
+                    </a>
+
+                    <a href="https://youtube.com/@road2aiims-adityajoshi?si=7OcJYLZpxh4Kj7wU" target="_blank" 
+                       class="p-4 rounded-2xl border border-slate-200 hover:border-red-400 hover:bg-red-50/30 text-center transition-all">
+                        <div class="w-12 h-12 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-2xl mx-auto mb-2">
+                            <i class="ph-fill ph-youtube-logo"></i>
+                        </div>
+                        <h4 class="font-bold text-xs sm:text-sm text-slate-900">Road to AIIMS</h4>
+                        <span class="text-[11px] text-slate-500">Topper Interviews</span>
+                    </a>
+
+                    <a href="https://youtube.com/@suryaplustestseries-joshi?si=BW_WmP2ERxZ7J0UB" target="_blank" 
+                       class="p-4 rounded-2xl border border-slate-200 hover:border-cyan-400 hover:bg-cyan-50/30 text-center transition-all">
+                        <div class="w-12 h-12 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center text-2xl mx-auto mb-2">
+                            <i class="ph-fill ph-video-camera"></i>
+                        </div>
+                        <h4 class="font-bold text-xs sm:text-sm text-slate-900">Surya Plus Mocks</h4>
+                        <span class="text-[11px] text-slate-500">Test Series YT</span>
+                    </a>
+
+                    <a href="https://t.me/adityaajoshii" target="_blank" 
+                       class="p-4 rounded-2xl border border-slate-200 hover:border-sky-400 hover:bg-sky-50/30 text-center transition-all">
+                        <div class="w-12 h-12 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center text-2xl mx-auto mb-2">
+                            <i class="ph-fill ph-telegram-logo"></i>
+                        </div>
+                        <h4 class="font-bold text-xs sm:text-sm text-slate-900">Telegram Channel</h4>
+                        <span class="text-[11px] text-slate-500">Daily Updates</span>
+                    </a>
+
+                    <a href="https://www.instagram.com/med.joshi?stkn=MWV2cDBvb3IzNGFoOQ%3D%3D&utm_source=qr" target="_blank" 
+                       class="p-4 rounded-2xl border border-slate-200 hover:border-pink-400 hover:bg-pink-50/30 text-center transition-all col-span-2 sm:col-span-1">
+                        <div class="w-12 h-12 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center text-2xl mx-auto mb-2">
+                            <i class="ph-fill ph-instagram-logo"></i>
+                        </div>
+                        <h4 class="font-bold text-xs sm:text-sm text-slate-900">Instagram</h4>
+                        <span class="text-[11px] text-slate-500">Tips &amp; Vlogs</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
 
         <!-- Community Network Composition -->
         <section class="py-20 bg-slate-50 border-b border-slate-200">
@@ -2345,5 +2580,30 @@
             }
         });
     </script>
+// MANUAL ARROW SCROLLER FOR AIIMS TEAM
+        function scrollTeamTrack(direction) {
+            const container = document.getElementById('team-scroller');
+            const track = document.querySelector('.team-marquee-track');
+            if (!container) return;
+
+            // Pause CSS animation temporarily when user clicks arrows
+            if (track) {
+                track.style.animationPlayState = 'paused';
+            }
+
+            const cardWidth = 280; // card width + gap
+            container.scrollBy({
+                left: direction * cardWidth,
+                behavior: 'smooth'
+            });
+
+            // Resume smooth auto scroll after 3 seconds of inactivity
+            clearTimeout(window.resumeTeamScrollTimer);
+            window.resumeTeamScrollTimer = setTimeout(() => {
+                if (track) {
+                    track.style.animationPlayState = 'running';
+                }
+            }, 3000);
+        }
 </body>
 </html>
