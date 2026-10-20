@@ -224,6 +224,7 @@
             display: flex;
             width: max-content;
             animation: teamMarquee 32s linear infinite;
+            will-change: transform;
         }
         .team-marquee-track:hover {
             animation-play-state: paused;
@@ -988,33 +989,18 @@
         </section>
 <!-- 13. MEET OUR AIIMS DELHI MENTOR CAROUSEL -->
         <section id="sec-team" class="py-20 bg-slate-50 border-t border-slate-200 overflow-hidden relative">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-                    <div class="text-left">
-                        <span class="text-xs font-bold font-mono tracking-widest uppercase text-cyan-700 bg-cyan-100/60 px-3 py-1 rounded-full">
-                            AIIMS Mentors
-                        </span>
-                        <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 mt-3 tracking-tight">
-                            Meet the AIIMS Delhi Team
-                        </h2>
-                        <p class="text-slate-600 mt-2 text-sm sm:text-base">
-                            Rank-holders who prepared under Aditya Joshi Sir and are now giving back to the next generation of doctors.
-                        </p>
-                    </div>
-
-                    <!-- Navigation Arrow Controls -->
-                    <div class="flex items-center gap-2 self-start sm:self-auto">
-                        <button type="button" onclick="scrollTeamTrack(-1)" 
-                                aria-label="Scroll left"
-                                class="w-10 h-10 rounded-full border border-slate-300 bg-white hover:bg-cyan-50 hover:border-cyan-400 text-slate-700 hover:text-cyan-700 flex items-center justify-center transition-all shadow-sm">
-                            <i class="ph ph-caret-left text-lg"></i>
-                        </button>
-                        <button type="button" onclick="scrollTeamTrack(1)" 
-                                aria-label="Scroll right"
-                                class="w-10 h-10 rounded-full border border-slate-300 bg-white hover:bg-cyan-50 hover:border-cyan-400 text-slate-700 hover:text-cyan-700 flex items-center justify-center transition-all shadow-sm">
-                            <i class="ph ph-caret-right text-lg"></i>
-                        </button>
-                    </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
+                <!-- Centered Header -->
+                <div class="max-w-2xl mx-auto">
+                    <span class="text-xs font-bold font-mono tracking-widest uppercase text-cyan-700 bg-cyan-100/60 px-3 py-1 rounded-full">
+                        AIIMS Mentors
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 mt-4 tracking-tight">
+                        Meet the AIIMS Delhi Team
+                    </h2>
+                    <p class="text-slate-600 mt-2 text-sm sm:text-base">
+                        Rank-holders who prepared under Aditya Joshi Sir and are now giving back to the next generation of doctors.
+                    </p>
                 </div>
             </div>
 
@@ -1024,9 +1010,9 @@
                 <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-slate-50 to-transparent z-10"></div>
                 <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-slate-50 to-transparent z-10"></div>
 
-                <!-- Scrolling Viewport & Track -->
-                <div id="team-scroller" class="overflow-x-auto scrollbar-none py-4" style="scrollbar-width: none; -ms-overflow-style: none;">
-                    <div class="team-marquee-track flex gap-6">
+                <!-- Scrolling Track Container -->
+                <div id="team-scroller" class="py-4">
+                    <div id="team-track" class="team-marquee-track flex gap-6" style="transform: translateX(0px);">
                         
                         <!-- CARD 1 -->
                         <div class="w-64 bg-white rounded-2xl border border-slate-200 p-3.5 flex-shrink-0 text-center shadow-sm hover:shadow-md hover:border-cyan-400 transition-all group">
@@ -1145,9 +1131,22 @@
 
                     </div>
                 </div>
+
+                <!-- Navigation Arrow Controls (Centered Below Images) -->
+                <div class="flex items-center justify-center gap-3 mt-6">
+                    <button type="button" onclick="scrollTeamTrack(-1)" 
+                            aria-label="Previous mentor"
+                            class="w-11 h-11 rounded-full border border-slate-300 bg-white hover:bg-cyan-50 hover:border-cyan-400 text-slate-700 hover:text-cyan-700 flex items-center justify-center transition-all shadow-md active:scale-95">
+                        <i class="ph ph-caret-left text-xl"></i>
+                    </button>
+                    <button type="button" onclick="scrollTeamTrack(1)" 
+                            aria-label="Next mentor"
+                            class="w-11 h-11 rounded-full border border-slate-300 bg-white hover:bg-cyan-50 hover:border-cyan-400 text-slate-700 hover:text-cyan-700 flex items-center justify-center transition-all shadow-md active:scale-95">
+                        <i class="ph ph-caret-right text-xl"></i>
+                    </button>
+                </div>
             </div>
         </section>
-
 
         <!-- 14. SOCIAL NETWORK CHANNELS -->
         <section class="py-16 bg-white border-t border-slate-200">
@@ -2579,31 +2578,41 @@
                 closeTestimonialModal();
             }
         });
-    </script>
-// MANUAL ARROW SCROLLER FOR AIIMS TEAM
-        function scrollTeamTrack(direction) {
-            const container = document.getElementById('team-scroller');
-            const track = document.querySelector('.team-marquee-track');
-            if (!container) return;
 
-            // Pause CSS animation temporarily when user clicks arrows
-            if (track) {
-                track.style.animationPlayState = 'paused';
+        // MANUAL ARROW SCROLLER FOR AIIMS TEAM
+        function scrollTeamTrack(direction) {
+            const track = document.getElementById('team-track');
+            if (!track) return;
+
+            // Stop CSS keyframe animation so transform can be manipulated directly
+            track.style.animation = 'none';
+            track.style.transition = 'transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1)';
+
+            // Read current transform matrix offset
+            const style = window.getComputedStyle(track);
+            const matrix = new WebKitCSSMatrix(style.transform);
+            const currentX = matrix.m41;
+
+            const cardStep = 280; // card width (256px) + gap (24px)
+            let newX = currentX - (direction * cardStep);
+
+            // Handle boundary loops
+            const halfWidth = track.scrollWidth / 2;
+            if (newX < -halfWidth) {
+                newX += halfWidth;
+            } else if (newX > 0) {
+                newX -= halfWidth;
             }
 
-            const cardWidth = 280; // card width + gap
-            container.scrollBy({
-                left: direction * cardWidth,
-                behavior: 'smooth'
-            });
+            track.style.transform = `translateX(${newX}px)`;
 
-            // Resume smooth auto scroll after 3 seconds of inactivity
-            clearTimeout(window.resumeTeamScrollTimer);
-            window.resumeTeamScrollTimer = setTimeout(() => {
-                if (track) {
-                    track.style.animationPlayState = 'running';
-                }
-            }, 3000);
+            // Resume smooth auto-scroll after 4 seconds of idle
+            clearTimeout(window.teamScrollResumeTimer);
+            window.teamScrollResumeTimer = setTimeout(() => {
+                track.style.transition = 'none';
+                track.style.animation = 'teamMarquee 32s linear infinite';
+            }, 4000);
         }
+    </script>
 </body>
 </html>
