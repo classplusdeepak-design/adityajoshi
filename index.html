@@ -2607,17 +2607,8 @@
                 document.body.style.overflow = '';
             }
         }
-        function handleReminderSubmit(e) {
-            e.preventDefault();
-            const formState = document.getElementById('reminder-form-state');
-            const successState = document.getElementById('reminder-success-state');
-            if (formState && successState) {
-                formState.classList.add('hidden');
-                successState.classList.remove('hidden');
-            }
-        }
-
-        // SCHEDULE MODAL
+        // Reminder form submission is handled by the form's submit handler above.
+// SCHEDULE MODAL
         function openScheduleModal() {
             const modal = document.getElementById('schedule-modal');
             if (modal) {
