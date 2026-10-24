@@ -2182,53 +2182,188 @@
         </div>
     </div>
 
-    <!-- 2. WHATSAPP REMINDER LEAD MODAL -->
-    <div id="reminder-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
-        <div class="relative w-full max-w-md bg-white rounded-3xl p-7 sm:p-8 shadow-2xl border border-slate-200">
-            <button onclick="closeReminderModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 text-2xl font-bold">&times;</button>
+    
+<!-- WhatsApp Reminder Lead Modal -->
+<div id="reminder-modal"
+     class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
 
-            <div id="reminder-form-state">
-                <div class="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-2xl mb-4 border border-cyan-200">
-                    <i class="ph-fill ph-bell-ringing"></i>
-                </div>
-                <h3 class="text-xl font-extrabold text-navy-950">Get Launch Alert</h3>
-                <p class="text-xs text-slate-600 mt-1 mb-5">
-                    We'll message you on WhatsApp 5 minutes before launch, with the link.
-                </p>
+  <div class="relative w-full max-w-md bg-white rounded-3xl p-7 sm:p-8 shadow-2xl border border-slate-200">
 
-                <form onsubmit="handleReminderSubmit(event)" class="space-y-3.5">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Name</label>
-                        <input type="text" required placeholder="Aman Sharma" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-cyan-500">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Mobile Number (10-digit)</label>
-                        <input type="tel" pattern="[0-9]{10}" required placeholder="9876543210" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-cyan-500">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Email</label>
-                        <input type="email" required placeholder="aman@example.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-cyan-500">
-                    </div>
-                    <button type="submit" class="w-full btn-glow text-white font-bold py-3 px-4 rounded-xl text-sm flex items-center justify-center gap-2 mt-4">
-                        Notify Me
-                    </button>
-                </form>
-            </div>
+    <button type="button"
+            onclick="closeReminderModal()"
+            class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 text-2xl font-bold">
+      &times;
+    </button>
 
-            <div id="reminder-success-state" class="hidden text-center py-6">
-                <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-4">
-                    <i class="ph-fill ph-check-circle"></i>
-                </div>
-                <h3 class="text-xl font-extrabold text-navy-950">Done!</h3>
-                <p class="text-sm text-slate-600 mt-2 mb-6">
-                    Done. We'll WhatsApp you at 6:55 PM on 9 Nov. Keep your UPI app ready.
-                </p>
-                <button onclick="closeReminderModal()" class="w-full py-2.5 bg-slate-900 text-white font-bold rounded-xl text-sm">
-                    Close
-                </button>
-            </div>
+    <div id="reminder-form-state">
+      <div class="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-2xl mb-4 border border-cyan-200">
+        <i class="ph-fill ph-bell-ringing"></i>
+      </div>
+
+      <h3 class="text-xl font-extrabold text-navy-950">Get Launch Alert</h3>
+
+      <p class="text-xs text-slate-600 mt-1 mb-5">
+        Submit your details to register for the launch alert.
+      </p>
+
+      <form id="reminder-lead-form"
+            action="https://script.google.com/a/macros/classplus.co/s/AKfycbywLR_Wa-oivOALi6cKzPI7Zpiq4Bx3uVUO_EGr4W0hEe67pf_kwfxUtj7hPGKj16ZVkw/exec"
+            method="POST"
+            target="reminder-submit-target"
+            onsubmit="return handleReminderSubmit(event)"
+            class="space-y-3.5">
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">
+            Name
+          </label>
+          <input type="text"
+                 name="name"
+                 required
+                 maxlength="100"
+                 autocomplete="name"
+                 placeholder="Aman Sharma"
+                 class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-cyan-500">
         </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">
+            Mobile Number (10-digit)
+          </label>
+          <input type="tel"
+                 name="mobile"
+                 pattern="[0-9]{10}"
+                 inputmode="numeric"
+                 maxlength="10"
+                 required
+                 autocomplete="tel-national"
+                 placeholder="9876543210"
+                 class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-cyan-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">
+            Email
+          </label>
+          <input type="email"
+                 name="email"
+                 required
+                 maxlength="254"
+                 autocomplete="email"
+                 placeholder="aman@example.com"
+                 class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-cyan-500">
+        </div>
+
+        <!-- Honeypot field: real users should leave this empty -->
+        <div aria-hidden="true"
+             style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;">
+          <label>Leave this field empty
+            <input type="text" name="website" tabindex="-1" autocomplete="off">
+          </label>
+        </div>
+
+        <p class="text-xs text-slate-500">
+          Your details will be used only to maintain the launch-alert registration list.
+        </p>
+
+        <button id="reminder-submit-btn"
+                type="submit"
+                class="w-full btn-glow text-white font-bold py-3 px-4 rounded-xl text-sm flex items-center justify-center gap-2 mt-4">
+          Notify Me
+        </button>
+
+        <p id="reminder-error" class="hidden text-sm text-red-600" role="alert">
+          Submission could not be completed. Please try again.
+        </p>
+      </form>
     </div>
+
+    <div id="reminder-success-state" class="hidden text-center py-6">
+      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-4">
+        <i class="ph-fill ph-check-circle"></i>
+      </div>
+
+      <h3 class="text-xl font-extrabold text-navy-950">Thank You!</h3>
+
+      <p class="text-sm text-slate-600 mt-2 mb-6">
+        Your registration has been submitted. Thank you for your interest!
+      </p>
+
+      <button type="button"
+              onclick="closeReminderModal()"
+              class="w-full py-2.5 bg-slate-900 text-white font-bold rounded-xl text-sm">
+        Close
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Hidden iframe receives the form response -->
+<iframe name="reminder-submit-target"
+        id="reminder-submit-target"
+        title="Form submission response"
+        style="display:none"></iframe>
+
+<script>
+  let reminderSubmissionPending = false;
+
+  function handleReminderSubmit(event) {
+    const form = document.getElementById('reminder-lead-form');
+    const button = document.getElementById('reminder-submit-btn');
+    const error = document.getElementById('reminder-error');
+
+    if (!form.reportValidity()) {
+      event.preventDefault();
+      return false;
+    }
+
+    if (reminderSubmissionPending) {
+      event.preventDefault();
+      return false;
+    }
+
+    reminderSubmissionPending = true;
+    button.disabled = true;
+    button.textContent = 'Submitting...';
+    error.classList.add('hidden');
+
+    return true;
+  }
+
+  // The initial iframe load is ignored.
+  document.getElementById('reminder-submit-target')
+    .addEventListener('load', function () {
+      if (!reminderSubmissionPending) return;
+
+      document.getElementById('reminder-form-state').classList.add('hidden');
+      document.getElementById('reminder-success-state').classList.remove('hidden');
+
+      reminderSubmissionPending = false;
+    });
+
+  function closeReminderModal() {
+    document.getElementById('reminder-modal')
+      .classList.add('hidden');
+
+    document.getElementById('reminder-modal')
+      .classList.remove('flex');
+
+    // Reset only after the submission has finished.
+    if (!reminderSubmissionPending) {
+      document.getElementById('reminder-lead-form').reset();
+      document.getElementById('reminder-form-state').classList.remove('hidden');
+      document.getElementById('reminder-success-state').classList.add('hidden');
+
+      const button = document.getElementById('reminder-submit-btn');
+      button.disabled = false;
+      button.textContent = 'Notify Me';
+
+      document.getElementById('reminder-error').classList.add('hidden');
+    }
+  }
+</script>
+
 
     <!-- 3. FULL 30-MOCK RELEASE SCHEDULE MODAL -->
     <div id="schedule-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm overflow-y-auto">
