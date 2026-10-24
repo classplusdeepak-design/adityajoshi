@@ -242,6 +242,27 @@
         .refund-policy-content ul, .refund-policy-content ol { margin: .75rem 0; }
         .refund-policy-content li { padding-left: .15rem; overflow-wrap: anywhere; }
         @media (max-width: 767px) {
+            /*
+             * Mobile-only header fix:
+             * Keep the Diwali announcement ribbon sticky at the top,
+             * but let the liquid-glass navigation header scroll away normally.
+             * Desktop/tablet layout and all page content remain unchanged.
+             */
+            .ann-bar-sticky {
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0;
+                z-index: 60;
+            }
+
+            /* The wrapper has Tailwind's sticky top-11 classes.
+               Override them only on mobile so the glass header does not remain pinned. */
+            body > div.sticky.top-11 {
+                position: relative !important;
+                top: auto !important;
+                z-index: 50;
+            }
+
             .liquid-glass-dock { border-radius: 1.25rem; padding-left: .65rem; padding-right: .65rem; gap: .4rem; }
             .header-mentorship-btn { font-size: 10px; padding: 8px 10px; gap: 4px; white-space: normal; line-height: 1.15; max-width: 118px; text-align: center; }
             .header-mentorship-btn i { display: none; }
