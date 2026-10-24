@@ -2607,8 +2607,10 @@
                 document.body.style.overflow = '';
             }
         }
-        // Reminder form submission is handled by the form's submit handler above.
-// SCHEDULE MODAL
+        // Do not redefine handleReminderSubmit here.
+        // The lead form handler above must allow the POST to reach Google Apps Script.
+
+        // SCHEDULE MODAL
         function openScheduleModal() {
             const modal = document.getElementById('schedule-modal');
             if (modal) {
