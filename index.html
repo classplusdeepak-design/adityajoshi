@@ -263,10 +263,52 @@
                 z-index: 50;
             }
 
-            .liquid-glass-dock { border-radius: 1.25rem; padding-left: .65rem; padding-right: .65rem; gap: .4rem; }
-            .header-mentorship-btn { font-size: 10px; padding: 8px 10px; gap: 4px; white-space: normal; line-height: 1.15; max-width: 118px; text-align: center; }
+            .liquid-glass-dock {
+                width: 100%;
+                border-radius: 1.25rem;
+                padding-left: .55rem;
+                padding-right: .55rem;
+                gap: .45rem;
+                justify-content: space-between;
+            }
+            /* Use the available mobile header width instead of leaving a large empty gap. */
+            .liquid-glass-dock > a:first-child {
+                flex: 0 0 42px;
+                width: 42px;
+                margin: 0;
+            }
+            .liquid-glass-dock > a:first-child > div:first-child {
+                width: 40px;
+                height: 40px;
+            }
+            .header-actions {
+                flex: 1 1 0%;
+                min-width: 0;
+                gap: .45rem;
+                justify-content: space-between;
+            }
+            .header-mentorship-btn {
+                flex: 1 1 0%;
+                width: auto;
+                min-width: 0;
+                max-width: none;
+                font-size: 12px;
+                padding: 10px 8px;
+                gap: 4px;
+                white-space: normal;
+                line-height: 1.2;
+                text-align: center;
+                justify-content: center;
+            }
+            .header-mentorship-btn span { display: block; }
             .header-mentorship-btn i { display: none; }
-            #mobile-toggle-btn { flex: 0 0 36px; }
+            .header-actions > button[onclick*="web.classplusapp.com"] {
+                flex: 0 0 auto;
+                margin-left: 0;
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+            #mobile-toggle-btn { flex: 0 0 36px; width: 36px; height: 36px; }
             .flip-unit { width: clamp(42px, 12vw, 60px); height: clamp(52px, 14vw, 64px); }
             .flip-card-inner { font-size: clamp(1.15rem, 5vw, 1.75rem); border-radius: 10px; }
             #page-home .overflow-x-auto { -webkit-overflow-scrolling: touch; }
@@ -277,8 +319,10 @@
             .elevated-card:hover { transform: none; }
         }
         @media (max-width: 380px) {
-            .header-mentorship-btn { max-width: 92px; font-size: 9px; padding: 7px; }
-            .liquid-glass-dock { padding-top: .45rem; padding-bottom: .45rem; }
+            .header-mentorship-btn { min-width: 0; max-width: none; font-size: 11px; padding: 8px 5px; }
+            .header-actions { gap: .3rem; }
+            .header-actions > button[onclick*="web.classplusapp.com"] { padding: 7px 9px; font-size: 11px; }
+            .liquid-glass-dock { padding-top: .45rem; padding-bottom: .45rem; gap: .35rem; }
             .ann-bar-sticky { padding-left: .5rem; padding-right: .5rem; }
         }
 
@@ -399,7 +443,7 @@
                 </nav>
 
                 <!-- Right Items: Join Mentorship Program Button, App Badges, and Login -->
-                <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+                <div class="header-actions flex items-center gap-2 sm:gap-3 flex-shrink-0">
                     <!-- Join Mentorship Program Pill -->
                     <a onclick="navigateTo('mentor')" class="header-mentorship-btn cursor-pointer">
                         <i class="ph-fill ph-crown text-navy-950"></i>
