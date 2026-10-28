@@ -328,6 +328,42 @@
         }
 
     
+        /* First-visit roadblock overlay */
+        .site-roadblock {
+            position: fixed;
+            inset: 0;
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            background: rgba(2, 6, 23, .94);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .site-roadblock-card {
+            width: min(100%, 760px);
+            max-height: calc(100dvh - 36px);
+            overflow-y: auto;
+            border-radius: 24px;
+            background: #fff;
+            border: 1px solid rgba(255,255,255,.25);
+            box-shadow: 0 25px 80px rgba(0,0,0,.45);
+        }
+        .site-roadblock-photo {
+            display: block;
+            width: 100%;
+            max-height: 52vh;
+            object-fit: contain;
+            background: #0F172A;
+        }
+        #reminder-modal { z-index: 10002; }
+        @media (max-width: 640px) {
+            .site-roadblock { padding: 10px; }
+            .site-roadblock-card { border-radius: 18px; max-height: calc(100dvh - 20px); }
+            .site-roadblock-photo { max-height: 43vh; }
+        }
+
         /* Purchase-style toast notification demo - matches the existing cyan/navy theme */
         .sample-activity-toast {
             position: fixed;
@@ -390,6 +426,28 @@
     </style>
 </head>
 <body class="text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- FIRST-VISIT ROADBLOCK: replace ./roadblock-photo.jpg with your local image filename -->
+    <section id="site-roadblock" class="site-roadblock" role="dialog" aria-modal="true" aria-labelledby="roadblock-title">
+        <div class="site-roadblock-card">
+            <img class="site-roadblock-photo" src="./image.jpeg"
+                 alt="Surya Plus announcement"
+                 onerror="this.onerror=null;this.src='https://placehold.co/1200x700/0F172A/00F0FF?text=Add+Your+Roadblock+Photo';">
+            <div class="p-5 sm:p-7 text-center">
+                <p class="text-xs font-bold uppercase tracking-[.2em] text-cyan-700">SURYA PLUS · NEET 2027</p>
+                <h2 id="roadblock-title" class="text-xl sm:text-2xl font-extrabold text-slate-950 mt-2">Don't Miss the Launch Reminder</h2>
+                <p class="text-sm text-slate-600 mt-2">Register to get your launch alert on WhatsApp.</p>
+                <div class="mt-5 flex flex-col sm:flex-row gap-3 justify-center">
+                    <button type="button" onclick="openReminderModal()" class="btn-glow text-white font-extrabold px-6 py-3 rounded-xl inline-flex items-center justify-center gap-2">
+                        <i class="ph-fill ph-whatsapp-logo text-xl"></i> Remind Me
+                    </button>
+                    <button type="button" onclick="dismissRoadblock()" class="px-6 py-3 rounded-xl font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200">
+                        Continue to Website
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- 1. TOP LAUNCH RIBBON TICKER -->
     <aside class="ann-bar-sticky text-white text-xs sm:text-sm py-2 px-4 shadow-sm">
@@ -493,6 +551,17 @@
                 <a onclick="navigateTo('hall'); toggleMobileMenu();" class="block px-4 py-2 rounded-xl hover:bg-white/10 text-sm font-semibold">Hall of Fame</a>
                 <a onclick="navigateTo('contact'); toggleMobileMenu();" class="block px-4 py-2 rounded-xl hover:bg-white/10 text-sm font-semibold">Contact Us</a>
                 <a onclick="navigateTo('mentor'); toggleMobileMenu();" class="block px-4 py-2 rounded-xl bg-cyan-950 text-cyan-300 font-bold border border-cyan-700 text-sm">Join Mentorship Program</a>
+                <div class="pt-2 mt-2 border-t border-white/15">
+                    <p class="px-4 pb-2 text-[11px] font-bold uppercase tracking-widest text-slate-400">Download App</p>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="https://play.google.com/store/apps/details?id=co.mark.ppgjx&amp;hl=en_IN" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-sm font-bold text-white">
+                            <i class="ph-fill ph-google-play-logo text-lg text-cyan-300"></i> Android App
+                        </a>
+                        <a href="https://apps.apple.com/in/app/aditya-joshi/id6748600584" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-sm font-bold text-white">
+                            <i class="ph-fill ph-apple-logo text-lg text-cyan-300"></i> iOS App
+                        </a>
+                    </div>
+                </div>
             </div>
         </header>
     </div>
@@ -2029,6 +2098,34 @@
                     <div onclick="openLightbox('https://d502jbuhuh9wk.cloudfront.net/ai_web/664a14d52fd4b2450b59600e/media/image/788f6abd-7417-4095-ab99-8574128641fc-hof-02.jpg')" class="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md cursor-pointer hover:scale-105 transition-all">
                         <img src="https://d502jbuhuh9wk.cloudfront.net/ai_web/664a14d52fd4b2450b59600e/media/image/788f6abd-7417-4095-ab99-8574128641fc-hof-02.jpg" alt="Topper Poster" class="w-full h-full object-contain">
                     </div>
+            
+
+                    <div onclick="openLightbox('.\hall (1).jpeg')" class="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md cursor-pointer hover:scale-105 transition-all">
+                        <img src=".\hall (1).jpeg" alt="Topper Poster" class="w-full h-full object-contain">
+                    </div>
+                    <div onclick="openLightbox('.\hall (2).jpeg')" class="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md cursor-pointer hover:scale-105 transition-all">
+                        <img src=".\hall (2).jpeg" alt="Topper Poster" class="w-full h-full object-contain">
+                    </div>
+                    <div onclick="openLightbox('.\hall (3).jpeg')" class="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md cursor-pointer hover:scale-105 transition-all">
+                        <img src=".\hall (3).jpeg" alt="Topper Poster" class="w-full h-full object-contain">
+                    </div>
+                    <div onclick="openLightbox('.\hall (4).jpeg')" class="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md cursor-pointer hover:scale-105 transition-all">
+                        <img src=".\hall (4).jpeg" alt="Topper Poster" class="w-full h-full object-contain">
+                    </div>
+                    <div onclick="openLightbox('.\hall (5).jpeg')" class="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md cursor-pointer hover:scale-105 transition-all">
+                        <img src=".\hall (5).jpeg" alt="Topper Poster" class="w-full h-full object-contain">
+                    </div>
+                    <div onclick="openLightbox('.\hall (6).jpeg')" class="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md cursor-pointer hover:scale-105 transition-all">
+                        <img src=".\hall (6).jpeg" alt="Topper Poster" class="w-full h-full object-contain">
+                    </div>
+                    <div onclick="openLightbox('.\hall (7).jpeg')" class="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md cursor-pointer hover:scale-105 transition-all">
+                        <img src=".\hall (7).jpeg" alt="Topper Poster" class="w-full h-full object-contain">
+                    </div>
+                    <div onclick="openLightbox('.\hall (8).jpeg')" class="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md cursor-pointer hover:scale-105 transition-all">
+                        <img src=".\hall (8).jpeg" alt="Topper Poster" class="w-full h-full object-contain">
+                    </div>
+
+
                 </div>
 
                 <div class="mt-14 text-center">
@@ -3130,6 +3227,18 @@ Email: morvantventures@gmail.com</p>
         // MOBILE DRAWER TOGGLE
         const mobileToggleBtn = document.getElementById('mobile-toggle-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        function dismissRoadblock() {
+            const roadblock = document.getElementById('site-roadblock');
+            if (roadblock) roadblock.remove();
+        }
+
+        // Show the existing reminder form on first visit; the roadblock remains behind it.
+        window.addEventListener('load', () => {
+            window.setTimeout(() => {
+                if (document.getElementById('site-roadblock')) openReminderModal();
+            }, 450);
+        });
+
         function toggleMobileMenu() {
             if (mobileMenu) mobileMenu.classList.toggle('hidden');
         }
