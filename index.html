@@ -148,30 +148,7 @@
             box-shadow: 0 20px 30px -10px rgba(14, 116, 144, 0.12);
             border-color: #06B6D4;
         }
-
-        /* Flip Countdown Unit */
-        .flip-unit {
-            position: relative;
-            width: 76px;
-            height: 84px;
-        }
-        .flip-card-inner {
-            width: 100%;
-            height: 100%;
-            background: #0F172A;
-            color: #22D3EE;
-            border-radius: 14px;
-            border: 1px solid rgba(6, 182, 212, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.25rem;
-            font-weight: 800;
-            font-variant-numeric: tabular-nums;
-            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
-        }
-
-        /* Infinite Testimonials Marquee */
+/* Infinite Testimonials Marquee */
         @keyframes marqueeScroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -245,7 +222,7 @@
         @media (max-width: 767px) {
             /*
              * Mobile-only header fix:
-             * Keep the Diwali announcement ribbon sticky at the top,
+             * Keep the live announcement ribbon sticky at the top,
              * but let the liquid-glass navigation header scroll away normally.
              * Desktop/tablet layout and all page content remain unchanged.
              */
@@ -357,7 +334,6 @@
             object-fit: contain;
             background: #0F172A;
         }
-        #reminder-modal { z-index: 10002; }
         @media (max-width: 640px) {
             .site-roadblock { padding: 10px; }
             .site-roadblock-card { border-radius: 18px; max-height: calc(100dvh - 20px); }
@@ -435,12 +411,12 @@
                  onerror="this.onerror=null;this.src='https://placehold.co/1200x700/0F172A/00F0FF?text=Add+Your+Roadblock+Photo';">
             <div class="p-5 sm:p-7 text-center">
                 <p class="text-xs font-bold uppercase tracking-[.2em] text-cyan-700">SURYA PLUS · NEET 2027</p>
-                <h2 id="roadblock-title" class="text-xl sm:text-2xl font-extrabold text-slate-950 mt-2">Don't Miss the Launch Reminder</h2>
-                <p class="text-sm text-slate-600 mt-2">Register to get your launch alert on WhatsApp.</p>
+                <h2 id="roadblock-title" class="text-xl sm:text-2xl font-extrabold text-slate-950 mt-2">Surya Plus Is LIVE NOW</h2>
+                <p class="text-sm text-slate-600 mt-2">The wait is over. Your NEET 2027 test series journey starts here.</p>
                 <div class="mt-5 flex flex-col sm:flex-row gap-3 justify-center">
-                    <button type="button" onclick="openReminderModal()" class="btn-glow text-white font-extrabold px-6 py-3 rounded-xl inline-flex items-center justify-center gap-2">
-                        <i class="ph-fill ph-whatsapp-logo text-xl"></i> Remind Me
-                    </button>
+                    <a href="https://obqype.courses.store/915302" target="_blank" rel="noopener noreferrer" class="btn-glow text-white font-extrabold px-6 py-3 rounded-xl inline-flex items-center justify-center gap-2">
+                        <i class="ph ph-shopping-cart text-xl"></i> BUY NOW
+                    </a>
                     <button type="button" onclick="dismissRoadblock()" class="px-6 py-3 rounded-xl font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200">
                         Continue to Website
                     </button>
@@ -455,20 +431,17 @@
             <div class="flex items-center gap-2.5 mx-auto sm:mx-0">
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-cyan-950 text-cyan-300 border border-cyan-700/60 shadow-sm">
                     <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping mr-1.5"></span>
-                    Diwali Launch
+                    LIVE NOW
                 </span>
                 <span class="font-medium text-slate-200">
-                    Surya Plus launches <span class="text-cyan-300 font-bold">9 Nov · 7:00 PM</span> · 
-                    <span class="text-amber-300 font-semibold">30% OFF for first 15 mins</span>
+                    <span class="text-cyan-300 font-bold">Surya Plus is LIVE NOW!</span> · 
+                    <span class="text-amber-300 font-semibold">Your NEET 2027 preparation starts today</span>
                 </span>
             </div>
             <div class="flex items-center gap-3 mx-auto sm:mx-0">
-                <span id="bar-mini-countdown" class="font-mono bg-slate-900 text-cyan-300 px-3 py-1 rounded-full text-xs border border-cyan-800/80 font-bold tracking-wider shadow-inner">
-                    20d 5h 41m 52s
-                </span>
-                <button onclick="openReminderModal()" class="text-cyan-300 hover:text-white font-semibold flex items-center gap-1 transition-colors text-xs">
-                    Get Reminder <i class="ph ph-arrow-right"></i>
-                </button>
+                <a href="https://obqype.courses.store/915302" target="_blank" rel="noopener noreferrer" class="btn-glow text-white font-bold px-4 py-2 rounded-full text-xs inline-flex items-center gap-1">
+                    BUY NOW <i class="ph ph-arrow-right"></i>
+                </a>
             </div>
         </div>
     </aside>
@@ -611,64 +584,37 @@
                             </div>
                         </div>
 
-                        <!-- Live Flip Watch / Countdown Timer -->
-                        <div class="bg-white/90 backdrop-blur rounded-2xl p-6 border border-slate-200 shadow-lg max-w-xl mx-auto lg:mx-0">
+                        <!-- Surya Plus is live now -->
+                        <div class="bg-white/90 backdrop-blur rounded-2xl p-6 border border-cyan-200 shadow-lg max-w-xl mx-auto lg:mx-0">
                             <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
                                 <span class="font-mono text-xs font-extrabold tracking-widest uppercase text-cyan-700 flex items-center gap-2">
                                     <span class="relative flex h-2.5 w-2.5">
                                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                                         <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-600"></span>
                                     </span>
-                                    Surya Plus Launches In
+                                    SURYA PLUS · LIVE NOW
                                 </span>
-                                <span class="text-xs font-bold bg-rose-100 text-rose-700 px-2.5 py-1 rounded-full uppercase tracking-wider">
-                                    30% OFF FIRST 15 MIN
+                                <span class="text-xs font-bold bg-cyan-100 text-cyan-800 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                                    ENROLMENTS OPEN
                                 </span>
                             </div>
-
-                            <div class="flex items-center justify-center lg:justify-start gap-3 sm:gap-4 select-none">
-                                <div class="flex flex-col items-center">
-                                    <div class="flip-unit"><div id="flip-days" class="flip-card-inner">20</div></div>
-                                    <span class="text-[11px] font-mono uppercase tracking-wider font-bold text-slate-500 mt-2">Days</span>
-                                </div>
-                                <span class="text-2xl font-bold text-slate-400 -mt-6">:</span>
-                                <div class="flex flex-col items-center">
-                                    <div class="flip-unit"><div id="flip-hours" class="flip-card-inner">05</div></div>
-                                    <span class="text-[11px] font-mono uppercase tracking-wider font-bold text-slate-500 mt-2">Hours</span>
-                                </div>
-                                <span class="text-2xl font-bold text-slate-400 -mt-6">:</span>
-                                <div class="flex flex-col items-center">
-                                    <div class="flip-unit"><div id="flip-mins" class="flip-card-inner">41</div></div>
-                                    <span class="text-[11px] font-mono uppercase tracking-wider font-bold text-slate-500 mt-2">Minutes</span>
-                                </div>
-                                <span class="text-2xl font-bold text-slate-400 -mt-6">:</span>
-                                <div class="flex flex-col items-center">
-                                    <div class="flip-unit"><div id="flip-secs" class="flip-card-inner text-cyan-400">52</div></div>
-                                    <span class="text-[11px] font-mono uppercase tracking-wider font-bold text-slate-500 mt-2">Seconds</span>
-                                </div>
-                            </div>
-
-                            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-                                <span><strong class="text-slate-800">Date:</strong> 9 Nov · 7:00 PM IST</span>
-                                <span class="text-cyan-700 font-semibold font-mono">Diwali Launch Special</span>
-                            </div>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-950">The wait is over. Your next score starts here.</h2>
+                            <p class="text-sm text-slate-600 mt-2">Get instant access to all 30 NEET 2027 prediction mocks, detailed solutions and proof videos.</p>
                         </div>
 
                         <!-- CTA buttons -->
                         <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start pt-2">
-                            <button onclick="openReminderModal()" 
+                            <a href="https://obqype.courses.store/915302" target="_blank" rel="noopener noreferrer"
                                     class="w-full sm:w-auto btn-glow text-white font-bold px-7 py-4 rounded-xl flex items-center justify-center gap-3 text-base">
-                                <i class="ph-fill ph-whatsapp-logo text-xl text-emerald-300"></i>
-                                Remind me at 7 PM on WhatsApp
-                            </button>
+                                <i class="ph ph-shopping-cart text-xl"></i>
+                                BUY NOW
+                            </a>
                             <a href="#home-results" 
                                class="w-full sm:w-auto px-6 py-4 rounded-xl font-bold text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 text-center transition-colors">
                                 Watch the proof first ↓
                             </a>
                         </div>
-                        <p class="text-xs text-slate-500 font-mono">
-                            <i class="ph ph-shield-check text-cyan-600 mr-1"></i>One message at 6:55 PM on 9 Nov with the link.
-                        </p>
+                        
                     </div>
 
                     <!-- Right visual photos -->
@@ -822,7 +768,7 @@
                                 </tr>
                                 <tr>
                                     <td class="p-5 font-bold text-slate-800">Price</td>
-                                    <td class="p-5 font-black text-cyan-800 bg-cyan-50/50 border-x border-cyan-100 text-center text-base">₹2,999 (FLAT 30% off click on remind me!)</td>
+                                    <td class="p-5 font-black text-cyan-800 bg-cyan-50/50 border-x border-cyan-100 text-center text-base">₹2,999 (FLAT 30% OFF)</td>
                                     <td class="p-5 text-slate-600 text-center">₹2,000 – ₹15,000</td>
                                 </tr>
                             </tbody>
@@ -955,9 +901,9 @@
                         </div>
                     </div>
                     <div class="mt-8">
-                        <button onclick="openReminderModal()" class="btn-glow text-white font-bold px-8 py-3.5 rounded-xl inline-flex items-center gap-2">
-                            <i class="ph-fill ph-whatsapp-logo text-xl"></i> Remind me at 7 PM on WhatsApp
-                        </button>
+                        <a href="https://obqype.courses.store/915302" target="_blank" rel="noopener noreferrer" class="btn-glow text-white font-bold px-8 py-3.5 rounded-xl inline-flex items-center gap-2">
+                            <i class="ph ph-shopping-cart text-xl"></i> BUY NOW
+                        </a>
                     </div>
                 </div>
             </div>
@@ -970,7 +916,7 @@
                     <span class="text-xs font-mono uppercase tracking-widest text-slate-500 font-bold block text-center">SURYA PLUS · NEET 2027</span>
                     <div class="text-center my-4">
                         <span class="text-5xl sm:text-6xl font-black text-navy-950">₹2,999</span>
-                        <p class="text-xs font-mono text-cyan-800 font-bold uppercase tracking-wider mt-2">FLAT 30% off click on remind me!</p>
+                        <p class="text-xs font-mono text-cyan-800 font-bold uppercase tracking-wider mt-2">FLAT 30% OFF · BUY NOW</p>
                     </div>
 
                     <div class="my-6 py-4 border-y border-slate-200 space-y-3 text-sm text-slate-700">
@@ -982,9 +928,9 @@
                         <div class="flex items-center gap-2.5 font-bold text-emerald-700"><i class="ph-fill ph-check-circle text-emerald-600 text-lg"></i><span>650+ guarantee</span></div>
                     </div>
 
-                    <button onclick="openReminderModal()" class="w-full btn-glow text-white font-extrabold py-4 px-6 rounded-xl flex items-center justify-center gap-2 shadow-lg">
-                        <i class="ph ph-shopping-cart text-xl"></i> Remind me at 7 PM on WhatsApp
-                    </button>
+                    <a href="https://obqype.courses.store/915302" target="_blank" rel="noopener noreferrer" class="w-full btn-glow text-white font-extrabold py-4 px-6 rounded-xl flex items-center justify-center gap-2 shadow-lg">
+                        <i class="ph ph-shopping-cart text-xl"></i> BUY NOW
+                    </a>
                     <h3 class="text-center font-bold text-slate-800 text-base mt-4">2999 • The investment to make you score under 100 Rank.</h3>
                     <p class="text-center text-xs text-slate-500 mt-1">Secure payment · UPI, cards, net banking</p>
                 </div>
@@ -1011,7 +957,7 @@
                             <i class="ph ph-tag"></i>
                         </div>
                         <h3 class="text-lg font-bold text-navy-950 mb-2">What it costs</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">₹2,999 — FLAT 30% off click on remind me!</p>
+                        <p class="text-sm text-slate-600 leading-relaxed">₹2,999 — FLAT 30% OFF · BUY NOW</p>
                     </div>
                     <div class="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm">
                         <div class="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-2xl mb-4 border border-cyan-200">
@@ -1612,9 +1558,9 @@
                             </div>
                         </div>
                         <div class="p-6 pt-0">
-                            <button onclick="openReminderModal()" class="w-full btn-glow text-white font-bold py-3 rounded-xl text-sm flex items-center justify-center gap-2">
-                                Enroll Now <i class="ph ph-arrow-right"></i>
-                            </button>
+                            <a href="https://obqype.courses.store/915302" target="_blank" rel="noopener noreferrer" class="w-full btn-glow text-white font-bold py-3 rounded-xl text-sm flex items-center justify-center gap-2">
+                                BUY NOW <i class="ph ph-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
 
@@ -2889,189 +2835,7 @@ Email: morvantventures@gmail.com</p>
     </div>
 
     
-<!-- WhatsApp Reminder Lead Modal -->
-<div id="reminder-modal"
-     class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
-
-  <div class="relative w-full max-w-md bg-white rounded-3xl p-7 sm:p-8 shadow-2xl border border-slate-200">
-
-    <button type="button"
-            onclick="closeReminderModal()"
-            class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 text-2xl font-bold">
-      &times;
-    </button>
-
-    <div id="reminder-form-state">
-      <div class="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-2xl mb-4 border border-cyan-200">
-        <i class="ph-fill ph-bell-ringing"></i>
-      </div>
-
-      <h3 class="text-xl font-extrabold text-navy-950">Get Launch Alert</h3>
-
-      <p class="text-xs text-slate-600 mt-1 mb-5">
-        Submit your details to register for the launch alert.
-      </p>
-
-      <form id="reminder-lead-form"
-            action="https://script.google.com/macros/s/AKfycbxaT5lN9PZHuiOT5sYAVvlyOHm2eEUD7Bx6EUUF4ezmyaUeIyCj3AhG3N6QOcGEkg/exec"
-            method="POST"
-            target="reminder-submit-target"
-            onsubmit="return handleReminderSubmit(event)"
-            class="space-y-3.5">
-
-        <div>
-          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">
-            Name
-          </label>
-          <input type="text"
-                 name="name"
-                 required
-                 maxlength="100"
-                 autocomplete="name"
-                 placeholder="Aman Sharma"
-                 class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-cyan-500">
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">
-            Mobile Number (10-digit)
-          </label>
-          <input type="tel"
-                 name="mobile"
-                 pattern="[0-9]{10}"
-                 inputmode="numeric"
-                 maxlength="10"
-                 required
-                 autocomplete="tel-national"
-                 placeholder="9876543210"
-                 class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-cyan-500">
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">
-            Email
-          </label>
-          <input type="email"
-                 name="email"
-                 required
-                 maxlength="254"
-                 autocomplete="email"
-                 placeholder="aman@example.com"
-                 class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-cyan-500">
-        </div>
-
-        <!-- Honeypot field: real users should leave this empty -->
-        <div aria-hidden="true"
-             style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;">
-          <label>Leave this field empty
-            <input type="text" name="website" tabindex="-1" autocomplete="off">
-          </label>
-        </div>
-
-        <p class="text-xs text-slate-500">
-          Your details will be used only to maintain the launch-alert registration list.
-        </p>
-
-        <button id="reminder-submit-btn"
-                type="submit"
-                class="w-full btn-glow text-white font-bold py-3 px-4 rounded-xl text-sm flex items-center justify-center gap-2 mt-4">
-          Notify Me
-        </button>
-
-        <p id="reminder-error" class="hidden text-sm text-red-600" role="alert">
-          Submission could not be completed. Please try again.
-        </p>
-      </form>
-    </div>
-
-    <div id="reminder-success-state" class="hidden text-center py-6">
-      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-4">
-        <i class="ph-fill ph-check-circle"></i>
-      </div>
-
-      <h3 class="text-xl font-extrabold text-navy-950">Thank You!</h3>
-
-      <p class="text-sm text-slate-600 mt-2 mb-6">
-        Your registration has been submitted. Wait for secret 30% off coupon on 9th nov!
-      </p>
-
-      <button type="button"
-              onclick="closeReminderModal()"
-              class="w-full py-2.5 bg-slate-900 text-white font-bold rounded-xl text-sm">
-        Close
-      </button>
-    </div>
-
-  </div>
-</div>
-
-<!-- Hidden iframe receives the form response -->
-<iframe name="reminder-submit-target"
-        id="reminder-submit-target"
-        title="Form submission response"
-        style="display:none"></iframe>
-
-<script>
-  let reminderSubmissionPending = false;
-
-  function handleReminderSubmit(event) {
-    const form = document.getElementById('reminder-lead-form');
-    const button = document.getElementById('reminder-submit-btn');
-    const error = document.getElementById('reminder-error');
-
-    if (!form.reportValidity()) {
-      event.preventDefault();
-      return false;
-    }
-
-    if (reminderSubmissionPending) {
-      event.preventDefault();
-      return false;
-    }
-
-    reminderSubmissionPending = true;
-    button.disabled = true;
-    button.textContent = 'Submitting...';
-    error.classList.add('hidden');
-
-    return true;
-  }
-
-  // The initial iframe load is ignored.
-  document.getElementById('reminder-submit-target')
-    .addEventListener('load', function () {
-      if (!reminderSubmissionPending) return;
-
-      document.getElementById('reminder-form-state').classList.add('hidden');
-      document.getElementById('reminder-success-state').classList.remove('hidden');
-
-      reminderSubmissionPending = false;
-    });
-
-  function closeReminderModal() {
-    document.getElementById('reminder-modal')
-      .classList.add('hidden');
-
-    document.getElementById('reminder-modal')
-      .classList.remove('flex');
-
-    // Reset only after the submission has finished.
-    if (!reminderSubmissionPending) {
-      document.getElementById('reminder-lead-form').reset();
-      document.getElementById('reminder-form-state').classList.remove('hidden');
-      document.getElementById('reminder-success-state').classList.add('hidden');
-
-      const button = document.getElementById('reminder-submit-btn');
-      button.disabled = false;
-      button.textContent = 'Notify Me';
-
-      document.getElementById('reminder-error').classList.add('hidden');
-    }
-  }
-</script>
-
-
-    <!-- 3. FULL 30-MOCK RELEASE SCHEDULE MODAL -->
+<!-- 3. FULL 30-MOCK RELEASE SCHEDULE MODAL -->
     <div id="schedule-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm overflow-y-auto">
         <div class="relative w-full max-w-2xl bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 my-8 max-h-[90vh] overflow-y-auto">
             <button onclick="closeScheduleModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 text-2xl font-bold">&times;</button>
@@ -3231,54 +2995,12 @@ Email: morvantventures@gmail.com</p>
             const roadblock = document.getElementById('site-roadblock');
             if (roadblock) roadblock.remove();
         }
-
-        // Show the existing reminder form on first visit; the roadblock remains behind it.
-        window.addEventListener('load', () => {
-            window.setTimeout(() => {
-                if (document.getElementById('site-roadblock')) openReminderModal();
-            }, 450);
-        });
-
-        function toggleMobileMenu() {
+function toggleMobileMenu() {
             if (mobileMenu) mobileMenu.classList.toggle('hidden');
         }
         if (mobileToggleBtn) {
             mobileToggleBtn.addEventListener('click', toggleMobileMenu);
         }
-
-        // FLIP CLOCK TICKER (9 Nov 2026, 7:00 PM IST)
-        const targetLaunchDate = new Date("2026-11-09T19:00:00+05:30").getTime();
-        const elDays = document.getElementById("flip-days");
-        const elHours = document.getElementById("flip-hours");
-        const elMins = document.getElementById("flip-mins");
-        const elSecs = document.getElementById("flip-secs");
-        const elMiniCountdown = document.getElementById("bar-mini-countdown");
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const diff = targetLaunchDate - now;
-
-            if (diff <= 0) {
-                if (elMiniCountdown) elMiniCountdown.innerText = "LIVE NOW";
-                return;
-            }
-
-            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-            if (elDays) elDays.innerText = String(d).padStart(2, "0");
-            if (elHours) elHours.innerText = String(h).padStart(2, "0");
-            if (elMins) elMins.innerText = String(m).padStart(2, "0");
-            if (elSecs) elSecs.innerText = String(s).padStart(2, "0");
-
-            if (elMiniCountdown) {
-                elMiniCountdown.innerText = `${d}d ${h}h ${m}m ${s}s`;
-            }
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
 
         // YOUTUBE VIDEO MODAL
         function openProofVideo(videoId, title) {
@@ -3303,30 +3025,6 @@ Email: morvantventures@gmail.com</p>
                 document.body.style.overflow = '';
             }
         }
-
-        // WHATSAPP REMINDER LEAD MODAL
-        function openReminderModal() {
-            const modal = document.getElementById('reminder-modal');
-            const formState = document.getElementById('reminder-form-state');
-            const successState = document.getElementById('reminder-success-state');
-            if (modal) {
-                if (formState) formState.classList.remove('hidden');
-                if (successState) successState.classList.add('hidden');
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-        function closeReminderModal() {
-            const modal = document.getElementById('reminder-modal');
-            if (modal) {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                document.body.style.overflow = '';
-            }
-        }
-        // Do not redefine handleReminderSubmit here.
-        // The lead form handler above must allow the POST to reach Google Apps Script.
 
         // SCHEDULE MODAL
         function openScheduleModal() {
@@ -3452,7 +3150,6 @@ Email: morvantventures@gmail.com</p>
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeProofVideo();
-                closeReminderModal();
                 closeScheduleModal();
                 closeLightbox();
                 closeTestimonialModal();
@@ -3502,7 +3199,7 @@ Email: morvantventures@gmail.com</p>
         <div class="sample-activity-icon"><i class="ph ph-shopping-cart"></i></div>
         <div class="min-w-0 flex-1">
             <p id="sample-activity-person" class="font-extrabold text-sm leading-snug">
-                Mohan just downloaded application from Delhi
+                Mohan just bought Surya Plus Test Series from Delhi
             </p>
             <p id="sample-activity-message" class="text-xs mt-1">
                 
@@ -3557,7 +3254,7 @@ Email: morvantventures@gmail.com</p>
             ];
 
             person.textContent =
-                entry.name + " downloaded application from " + entry.city;
+                entry.name + " Just bought Surya Plus Test Series from " + entry.city;
             message.textContent = "";
 
             toast.classList.add("is-visible");
