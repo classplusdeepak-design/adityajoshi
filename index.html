@@ -3280,5 +3280,57 @@ function toggleMobileMenu() {
         });
     </script>
 
+<!-- WhatsApp Floating Button -->
+<style>
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    z-index: 999999;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #20ba5a;
+}
+
+.whatsapp-float svg {
+    width: 34px;
+    height: 34px;
+    fill: white;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 18px;
+    }
+}
+</style>
+
+<a href="https://wa.me/918267905011?text=Hello%2C%20I%20visited%20your%20website."
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Chat with us on WhatsApp">
+
+    <svg viewBox="0 0 32 32">
+        <path d="M16 3C8.83 3 3 8.83 3 16c0 2.3.6 4.55 1.74 6.54L3 29l6.62-1.7A13 13 0 1 0 16 3zm0 23.5c-2.03 0-4.02-.55-5.75-1.6l-.41-.24-3.93 1.02 1.05-3.82-.27-.42A10.5 10.5 0 1 1 16 26.5zm5.77-7.87c-.32-.16-1.88-.93-2.17-1.04-.29-.1-.5-.16-.7.16-.21.32-.8 1.04-.98 1.25-.18.21-.36.24-.68.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.6-1.9-1.78-2.22-.18-.32-.02-.5.14-.66.14-.14.32-.36.48-.54.16-.18.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.7-1.7-.96-2.33-.25-.61-.51-.53-.7-.54h-.6c-.21 0-.55.08-.84.4-.29.32-1.1 1.07-1.1 2.6s1.13 3.01 1.29 3.22c.16.21 2.23 3.4 5.4 4.77.75.32 1.34.52 1.8.66.76.24 1.45.2 2 .12.61-.09 1.88-.77 2.15-1.52.26-.75.26-1.4.18-1.53-.08-.13-.29-.21-.61-.37z"/>
+    </svg>
+</a>
+
 </body>
 </html>
